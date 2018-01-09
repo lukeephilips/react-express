@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/yarn test
+  /usr/local/Cellar/node/8.5.0/bin/node /usr/local/bin/yarn stop
 
 PATH: 
   /Users/luke/.composer/vendor/bin:/usr/local/opt/imagemagick@6/bin:/Users/luke/.rvm/gems/ruby-2.3.0/bin:/Users/luke/.rvm/gems/ruby-2.3.0@global/bin:/Users/luke/.rvm/rubies/ruby-2.3.0/bin:/Users/luke/.gem/ruby/2.2.2/bin:/Users/luke/.rubies/ruby-2.2.2/lib/ruby/gems/2.2.0/bin:/Users/luke/.rubies/ruby-2.2.2/bin:/usr/local/bin:/Users/luke/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/luke/.rvm/bin
@@ -21,9 +21,10 @@ npm manifest:
     "main": "lib/server.js",
     "license": "MIT",
     "scripts": {
-      "dev": "pm2 start lib/server.js --watch --interpreter babel-node",
+      "dev": "NODE_PATH=./lib pm2 start lib/server.js --watch --interpreter babel-node",
+      "stop": {"yarn pm2 stop server yarn pm2 delete server yarn pm2 flush"}
       "webpack": "webpack -wd",
-      "test": "jest --watch",
+      "test": "jest --watch"
     },
     "babel": {
       "presets": [
@@ -36,7 +37,8 @@ npm manifest:
       "babel-eslint": "^8.1.2",
       "eslint": "^4.14.0",
       "eslint-plugin-react": "^7.5.1",
-      "jest": "^22.0.4"
+      "jest": "^22.0.4",
+      "react-test-renderer": "^16.2.0"
     },
     "dependencies": {
       "babel-cli": "^6.26.0",
@@ -4078,6 +4080,14 @@ Lockfile:
       object-assign "^4.1.1"
       prop-types "^15.6.0"
   
+  react-test-renderer@^16.2.0:
+    version "16.2.0"
+    resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.2.0.tgz#bddf259a6b8fcd8555f012afc8eacc238872a211"
+    dependencies:
+      fbjs "^0.8.16"
+      object-assign "^4.1.1"
+      prop-types "^15.6.0"
+  
   react@^16.2.0:
     version "16.2.0"
     resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
@@ -5150,7 +5160,7 @@ Lockfile:
       window-size "0.1.0"
 
 Trace: 
-  SyntaxError: /Users/luke/secrit-hacking/react/advanced_react/package.json: Unexpected token } in JSON at position 289
+  SyntaxError: /Users/luke/secrit-hacking/react/advanced_react/package.json: Unexpected token } in JSON at position 318
       at JSON.parse (<anonymous>)
       at /usr/local/lib/node_modules/yarn/lib/cli.js:770:59
       at Generator.next (<anonymous>)
