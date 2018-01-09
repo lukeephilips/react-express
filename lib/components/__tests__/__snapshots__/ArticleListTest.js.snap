@@ -47,7 +47,7 @@ exports[`ArticleList renders correctly 1`] = `
       }
     >
       <p>
-        By 
+        By: 
         <a
           href={undefined}
         >
@@ -101,7 +101,7 @@ exports[`ArticleList renders correctly 1`] = `
       }
     >
       <p>
-        By 
+        By: 
         <a
           href={undefined}
         >
