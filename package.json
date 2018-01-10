@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "NODE_PATH=./lib pm2 start lib/server.js --watch --interpreter babel-node && pm2 logs",
-    "stop": "pm2 stop server && pm2 delete server && pm2 flush",
+    "stop": "pm2 stop server && pm2 flush && pm2 delete server",
     "webpack": "webpack -wd",
     "test": "jest --watch"
   },
@@ -19,6 +19,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.1.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.14.0",
     "eslint-plugin-react": "^7.5.1",
     "jest": "^22.0.4",
