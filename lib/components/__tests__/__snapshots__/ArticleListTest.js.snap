@@ -37,7 +37,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Article
+        <WithStore
           article={
             Object {
               "authorId": "2c6aa2cfe3449467d329fa17d6ea230f",
@@ -49,7 +49,7 @@ ShallowWrapper {
           }
           store={undefined}
         />,
-        <Article
+        <WithStore
           article={
             Object {
               "authorId": "2c6aa2cfe3449467d329fa17d6ea230f",
@@ -111,7 +111,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Article
+          <WithStore
             article={
               Object {
                 "authorId": "2c6aa2cfe3449467d329fa17d6ea230f",
@@ -123,7 +123,7 @@ ShallowWrapper {
             }
             store={undefined}
           />,
-          <Article
+          <WithStore
             article={
               Object {
                 "authorId": "2c6aa2cfe3449467d329fa17d6ea230f",
