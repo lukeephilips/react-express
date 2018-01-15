@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 const config = {
   resolve: {
@@ -7,16 +8,32 @@ const config = {
       path.resolve('./node_modules'),
     ]
   },
-  entry: ['babel-polyfill', './lib/renderers/dom.js'],
+  // entry: ,
+  entry: {
+    vendor:['react',
+      'react-dom',
+      'axios',
+      'lodash.debounce',
+      'lodash.pickby',
+      'prop-types',
+      'babel-polyfill'],
+    app: ['./lib/renderers/dom.js'],
+  },
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
       { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' }
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+
+    })
+  ]
 };
 
 module.exports = config;
